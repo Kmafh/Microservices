@@ -1,0 +1,7 @@
+package com.talan.microservicios.app.cursos.services;
+
+import com.talan.microservicios.app.usuarios.common.service.CommonServiceImp;
+
+public class CursoServiceImp extends CommonServiceImp<E, R> implements ICursoService{
+
+}

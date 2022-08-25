@@ -1,0 +1,5 @@
+package com.talan.microservicios.app.cursos.models.entity;
+
+public class Curso {
+
+}

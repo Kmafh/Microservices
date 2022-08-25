@@ -1,0 +1,37 @@
+package com.talan.microservicios.app.usuarios.talan.services;
+
+import com.talan.microservicios.app.usuarios.common.service.CommonServiceImp;
+import com.talan.microservicios.app.usuarios.talan.models.entity.Alumno;
+import com.talan.microservicios.app.usuarios.talan.models.repository.IAlumnoRespository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
+
+@Service
+public class AlumnoServiceImp extends CommonServiceImp<Alumno, IAlumnoRespository> implements IAlumnoService{
+    @Autowired
+    private IAlumnoRespository alumnoService;
+    @Override
+    @Transactional(readOnly = true)
+    public Iterable<Alumno> findAll() {
+        return alumnoService.findAll();
+    }
+
+    @Override
+    @Transactional(readOnly=true)
+    public Optional<Alumno> findById(Long id) {
+        return alumnoService.findById(id);
+    }
+
+    @Override
+    public Alumno save(Alumno alumno) {
+        return alumnoService.save(alumno);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+            alumnoService.deleteById(id);
+    }
+}

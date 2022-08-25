@@ -1,0 +1,5 @@
+package com.talan.microservicios.app.cursos.models.repository;
+
+public interface ICursoRepository {
+
+}

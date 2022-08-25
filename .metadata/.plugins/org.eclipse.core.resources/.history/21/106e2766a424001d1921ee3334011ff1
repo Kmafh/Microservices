@@ -1,0 +1,11 @@
+package com.talan.microservicios.app.cursos.models.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Curso {
+
+	@Id
+	private Long id;
+}

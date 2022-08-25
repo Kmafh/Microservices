@@ -1,0 +1,5 @@
+package com.talan.microservicios.app.cursos.controller;
+
+public class CursoController {
+
+}
