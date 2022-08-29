@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
-@Service
+
 public class CommonServiceImp<E,R extends CrudRepository<E,Long>> implements ICommonService<E>{
     @Autowired
     protected R repository;

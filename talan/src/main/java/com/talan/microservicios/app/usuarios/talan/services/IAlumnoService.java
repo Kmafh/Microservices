@@ -1,9 +1,7 @@
 package com.talan.microservicios.app.usuarios.talan.services;
 
+import com.tala.microservicios.app.usuarios.models.entity.alumno.Alumno;
 import com.talan.microservicios.app.usuarios.common.service.ICommonService;
-import com.talan.microservicios.app.usuarios.talan.models.entity.Alumno;
-
-import java.util.Optional;
 
 public interface IAlumnoService extends ICommonService<Alumno>{
 

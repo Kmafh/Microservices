@@ -1,7 +1,7 @@
 package com.talan.microservicios.app.usuarios.talan.controller;
 
+import com.tala.microservicios.app.usuarios.models.entity.alumno.Alumno;
 import com.talan.microservicios.app.usuarios.common.controller.CommonController;
-import com.talan.microservicios.app.usuarios.talan.models.entity.Alumno;
 import com.talan.microservicios.app.usuarios.talan.services.IAlumnoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
