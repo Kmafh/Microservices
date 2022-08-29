@@ -1,4 +1,4 @@
-package com.tala.microservicios.app.cursos.models.entity;
+package com.talan.microservicios.app.cursos.models.entity;
 
 import java.util.Date;
 

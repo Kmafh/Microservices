@@ -1,4 +1,4 @@
-package com.tala.microservicios.app.cursos;
+package com.talan.microservicios.app.cursos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
