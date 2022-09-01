@@ -4,4 +4,5 @@ import com.talan.microservicios.app.usuarios.common.service.ICommonService;
 
 public interface ICursoService extends ICommonService<Curso>{
 
+	public Curso findCrusoByAlumnoId(Long id);
 }

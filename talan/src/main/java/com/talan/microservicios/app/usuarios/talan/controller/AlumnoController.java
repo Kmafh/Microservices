@@ -24,5 +24,10 @@ public class AlumnoController extends CommonController<Alumno, IAlumnoService>{
 
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(alumnoDb));
     }
+    
+    @GetMapping("/buscar/{term}")
+    public ResponseEntity<?> buscar(@PathVariable String term){
+    	return ResponseEntity.ok(service.findByNameOrSurname(term));
+    }
 
 }
