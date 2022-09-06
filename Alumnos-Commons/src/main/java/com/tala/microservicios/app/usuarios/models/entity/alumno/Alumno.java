@@ -1,6 +1,9 @@
 package com.tala.microservicios.app.usuarios.models.entity.alumno;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -11,9 +14,13 @@ public class Alumno implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
+    @NotEmpty
     private String name;
+    @NotEmpty
     private String username;
+    @NotEmpty
+    @Email
     private String email;
     @Column(name = "create_at")
     @Temporal(TemporalType.TIMESTAMP)

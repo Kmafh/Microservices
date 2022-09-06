@@ -2,8 +2,11 @@ package com.talan.microservicios.app.examenes.controllers;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -19,7 +22,11 @@ public class ExamenController extends CommonController<Examen, IExamenService>{
 
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> modify(@RequestBody Examen examen,@PathVariable Long id){
+	public ResponseEntity<?> modify(@Valid @RequestBody Examen examen,BindingResult result,@PathVariable Long id){
+		
+		if(result.hasErrors()) {
+    		return this.validationEntity(result);
+    	}
 		
 		Optional<Examen> o = service.findById(id);
 		if(!o.isPresent()) {

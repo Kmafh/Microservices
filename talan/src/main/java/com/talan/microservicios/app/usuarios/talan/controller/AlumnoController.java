@@ -5,15 +5,22 @@ import com.talan.microservicios.app.usuarios.common.controller.CommonController;
 import com.talan.microservicios.app.usuarios.talan.services.IAlumnoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
+
+import javax.validation.Valid;
 @RestController
 public class AlumnoController extends CommonController<Alumno, IAlumnoService>{
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editAlumno(@RequestBody Alumno alumno, @PathVariable Long id){
-        Optional<Alumno> o= service.findById(id);
+    public ResponseEntity<?> editAlumno(@Valid @RequestBody Alumno alumno,BindingResult result, @PathVariable Long id){
+    	if(result.hasErrors()) {
+    		return this.validationEntity(result);
+    	}
+    	
+    	Optional<Alumno> o= service.findById(id);
         if(o.isEmpty()){
             return ResponseEntity.notFound().build();
         }
