@@ -6,7 +6,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
 @EntityScan({"com.tala.microservicios.app.usuarios.models.entity.alumno",
-	"com.talan.microservicios.app.cursos.models.entity"})
+			"com.talan.microservicios.app.cursos.models.entity",
+			"com.talan.microservicios.commons.examenes.models.entity"})
 public class CursosApplication {
 
 	public static void main(String[] args) {

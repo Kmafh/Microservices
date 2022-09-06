@@ -15,6 +15,7 @@ import com.tala.microservicios.app.usuarios.models.entity.alumno.Alumno;
 import com.talan.microservicios.app.cursos.models.entity.Curso;
 import com.talan.microservicios.app.cursos.services.ICursoService;
 import com.talan.microservicios.app.usuarios.common.controller.CommonController;
+import com.talan.microservicios.commons.examenes.models.entity.Examen;
 
 @RestController
 public class CursoController extends CommonController<Curso,ICursoService>{
@@ -62,5 +63,30 @@ public class CursoController extends CommonController<Curso,ICursoService>{
 		return ResponseEntity.ok(curso);
 	}
 	
+	@PutMapping("/{id}/asignar-exam")
+	public ResponseEntity<?> asignExam(@RequestBody List<Examen> examenes, @PathVariable Long id){
+		
+		Optional<Curso> o = this.service.findById(id);
+		if(!o.isPresent()) return ResponseEntity.notFound().build();
+		
+		Curso dbCurso = o.get();
+		
+		examenes.forEach(a -> {
+			dbCurso.addExamen(a);
+		});
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(this.service.save(dbCurso));
+	}
 	
+	@PutMapping("/{id}/dell-exam")
+	public ResponseEntity<?> dellExam(@RequestBody Examen examen, @PathVariable Long id){
+		
+		Optional<Curso> o = this.service.findById(id);
+		if(!o.isPresent()) return ResponseEntity.notFound().build();
+		
+		Curso dbCurso = o.get();
+		dbCurso.removeExamen(examen);
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(this.service.save(dbCurso));
+	}
 }

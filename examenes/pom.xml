@@ -7,10 +7,10 @@
 		<version>2.7.3</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.tala.microservicios.app.cursos</groupId>
-	<artifactId>cursos</artifactId>
+	<groupId>com.talan.microservicios.app.examenes</groupId>
+	<artifactId>examenes</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cursos</name>
+	<name>examenes</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
@@ -20,6 +20,11 @@
 		<dependency>
 			<groupId>com.talan.microservicios.commons.examenes</groupId>
 			<artifactId>commons-examenes</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.talan.microservicios.app.usuarios.common</groupId>
+			<artifactId>com.talan.microservicios.app.usuarios.common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
@@ -34,11 +39,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>com.tala.microservicios.app.usuarios</groupId>
-			<artifactId>Alumnos-Commons</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
