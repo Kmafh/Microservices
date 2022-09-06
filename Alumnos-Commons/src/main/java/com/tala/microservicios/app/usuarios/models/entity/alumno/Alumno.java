@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -11,7 +13,9 @@ import java.util.Date;
 @Table(name="alumnos")
 public class Alumno implements Serializable {
 
-    @Id
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
@@ -25,6 +29,16 @@ public class Alumno implements Serializable {
     @Column(name = "create_at")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createAt;
+    
+    @Lob
+    @JsonIgnore
+    private byte[] image;
+    
+    
+    public Integer getFotoHashCode() {
+    	return (this.image != null) ? this.image.hashCode():null;
+    }
+    
     
     @PrePersist
     public void prePersit()
@@ -71,6 +85,16 @@ public class Alumno implements Serializable {
     public void setCreateAt(Date createAt) {
         this.createAt = createAt;
     }
+
+    
+    
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
